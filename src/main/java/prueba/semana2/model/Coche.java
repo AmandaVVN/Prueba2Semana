@@ -1,24 +1,34 @@
-package prueba.semana2;
+package prueba.semana2.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Coche.java Clase para el objecto Coche
  */
+@Entity
+@Table(name = "coche")
 public class Coche extends Vehiculo {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_coche;
+	@Column
     private String tipoMarchas;
+	@Column
     protected static final String TIPO = "Coche";
 
     /**
      * Constructor de la clase Coche.
      *
      * @param color       color del vehiculo
-     * 
      * @param marca       marca del vehiculo
-     * 
      * @param precio      precio del vehiculo
-     * 
      * @param matricula   matricula del vehiculo
-     * 
      * @param tipoMarchas tipo de marchas del coche
      * 
      */

@@ -1,16 +1,35 @@
-package prueba.semana2;
+package prueba.semana2.model;
 
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
+
+import prueba.semana2.services.IConducible;
 
 /**
  * Vehiculo.java Clase para el objecto Vehiculo
  */
+
+/*
+ * Para que las propiedades de la superclass existan en la base de datos en sus hijos
+ */
+@MappedSuperclass
 public abstract class Vehiculo implements IConducible {
+
+	@Column
     protected String color;
+	@Column
     protected String marca;
+	@Column
     protected String precio;
+	@Column
     protected String matricula;
+	@Column
     protected int numRuedas;
+	@Column
     private boolean arrancado = false;
     protected static final String TIPO = "Vehiculo";
 

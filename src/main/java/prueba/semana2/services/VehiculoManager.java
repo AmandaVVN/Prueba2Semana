@@ -1,4 +1,12 @@
-package prueba.semana2;
+package prueba.semana2.services;
+
+import javax.persistence.EntityManager;
+
+import prueba.semana2.model.Barco;
+import prueba.semana2.model.Coche;
+import prueba.semana2.model.Moto;
+import prueba.semana2.model.Vehiculo;
+import prueba.semana2.persistance.JPAPersistence;
 
 /**
  * VehiculoManager
@@ -6,7 +14,8 @@ package prueba.semana2;
  */
 public class VehiculoManager {
     private Vehiculo vehiculo;
-    
+	private EntityManager entity = JPAPersistence.getEntityManagerFactory().createEntityManager();
+
     private InputHandler inputHandler = new InputHandler();
     
     /**
@@ -33,14 +42,19 @@ public class VehiculoManager {
             default: // Como default por opcion no incluida, salir
                 System.out.println("No se ha encontrado una opción válida.");
                 return null;
-
         }
+        
+        if(vehiculo != null) {
+        	registrarVehiculo(vehiculo);
+        }
+        
         return null; // no se ha encontrado ningun resultado valido
 
     }
 
     private Vehiculo createCoche() {
         Coche coche = new Coche("Rojo", "Toyota", "20.000 €", "SADF12", "Manual");
+        
         System.out.println(
                 "Se ha creado un vehículo de tipo Coche ");
         return coche;
@@ -59,7 +73,20 @@ public class VehiculoManager {
                 "Se ha creado un vehículo de tipo Barco ");
         return barco;
     }
-
+    /*
+     * Añade registros a la base de datos
+     */
+    
+    private void registrarVehiculo(Vehiculo vehiculo) {
+    	
+		entity.getTransaction().begin();
+		entity.persist(vehiculo);
+		entity.getTransaction().commit();
+		
+		System.out.println("Producto registrado.");
+		System.out.println();
+    }
+    
     /**
      * pregunta y ejecuta
      * la accion del usuario.

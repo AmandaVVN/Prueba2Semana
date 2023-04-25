@@ -1,4 +1,4 @@
-package prueba.semana2;
+package prueba.semana2.services;
 
 /**
  * Interface Conducible.

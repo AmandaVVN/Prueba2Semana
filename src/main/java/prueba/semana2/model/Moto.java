@@ -1,11 +1,26 @@
-package prueba.semana2;
+package prueba.semana2.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Moto.java Clase para el objecto Moto
  */
+
+@Entity
+@Table(name = "moto")
 public class Moto extends Vehiculo {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_moto;
+	@Column
     private String tipoMoto;
+	@Column
     protected static final String TIPO = "Moto";
 
     /**
