@@ -1,14 +1,21 @@
-package prueba.semana1;
+package prueba.semana2;
 
 /**
  * Moto.java Clase para el objecto Moto
  */
 public class Moto extends Vehiculo {
+	
     private String tipoMoto;
     protected static final String TIPO = "Moto";
 
     /**
-     * contructor de la clase moto.
+     * Constructor de la clase Moto.
+     *
+     * @param color     El color del Moto.
+     * @param marca     La marca del Moto.
+     * @param precio    El precio del Moto.
+     * @param matricula La matricula del Moto.
+     * @param tipoMoto El tipo de Moto.
      */
     public Moto(String color, String marca, String precio, String matricula, String tipoMoto) {
         super(color, marca, precio, matricula, 2); // Una moto siempre tiene 2 ruedas

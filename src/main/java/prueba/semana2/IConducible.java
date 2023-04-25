@@ -1,9 +1,9 @@
-package prueba.semana1;
+package prueba.semana2;
 
 /**
  * Interface Conducible.
  */
-public interface Conducible { // Conducible
+public interface IConducible { // Conducible
     boolean arrancar();
 
     boolean avanzar(int distancia);

@@ -1,11 +1,11 @@
-package prueba.semana1;
+package prueba.semana2;
 
 import java.util.Date;
 
 /**
  * Vehiculo.java Clase para el objecto Vehiculo
  */
-public abstract class Vehiculo implements Conducible {
+public abstract class Vehiculo implements IConducible {
     protected String color;
     protected String marca;
     protected String precio;

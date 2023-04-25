@@ -1,12 +1,5 @@
-package prueba.semana1;
+package prueba.semana2;
 
-/**
- * MyApp.java
- *
- * @autor: Antonio Garces
- * @revisor: Carlos Arranz
- * @version: 1.0
- */
 public class MyApp {
 
     /**

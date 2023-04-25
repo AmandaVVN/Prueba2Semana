@@ -1,12 +1,5 @@
-package prueba.semana1;
+package prueba.semana2;
 
-/**
- * Barco.java Clase para el objecto Barco
- *
- * @autor: Antoni
- * @revisor: Carlos
- * @version: 1.0
- */
 public class Barco extends Vehiculo {
     private String tipoBarco;
     protected static final String TIPO = "Barco";

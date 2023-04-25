@@ -1,4 +1,4 @@
-package prueba.semana1;
+package prueba.semana2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,11 +59,14 @@ public class InputHandler {
             }
         }
 
+
         int respuesta = -1;
-        do {
+        respuesta = scanner.nextInt();
+        
+        while (respuesta < 0 || respuesta >= options.size()) {
             System.out.println("Por favor elija una de las opciones propuestas.");
             respuesta = scanner.nextInt();
-        } while (respuesta < 0 || respuesta >= options.size());
+        }
 
         System.out.printf("Has elegido la opción: %d - %s%n", respuesta, options.get(respuesta));
         return respuesta;
@@ -92,12 +95,4 @@ public class InputHandler {
 
     }
 
-    /**
-     * Metodo para resetear el scanner.
-     */
-    public void reset() {
-        this.scanner.reset();
-        this.scanner.close();
-        this.scanner = new Scanner(System.in);
-    }
 }

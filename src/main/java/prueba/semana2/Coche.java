@@ -1,4 +1,4 @@
-package prueba.semana1;
+package prueba.semana2;
 
 /**
  * Coche.java Clase para el objecto Coche

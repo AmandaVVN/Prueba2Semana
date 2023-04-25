@@ -1,4 +1,4 @@
-package prueba.semana1;
+package prueba.semana2;
 
 /**
  * VehiculoManager
@@ -6,15 +6,15 @@ package prueba.semana1;
  */
 public class VehiculoManager {
     private Vehiculo vehiculo;
-
+    
+    private InputHandler inputHandler = new InputHandler();
+    
     /**
      * Método para crear un Vehiculo siguiendo el input del usuario.
      *
      * @return Vehiculo vehiculo
      */
     public Vehiculo createVehiculo() {
-
-        InputHandler inputHandler = new InputHandler();
 
         Integer tipoVehiculo = inputHandler.getTipoVehiculo();
 
@@ -66,10 +66,8 @@ public class VehiculoManager {
      */
     public boolean runAccion() {
 
-        InputHandler inputHandler = new InputHandler();
-
         Integer accion = inputHandler.getAccion();
-
+        
         switch (accion) {
             case 0: // Opcion arranque
                 return vehiculo.arrancar();
@@ -78,26 +76,9 @@ public class VehiculoManager {
                 return vehiculo.parar();
 
             case 2: // Opcion avanzar
-                if (vehiculo.isArrancado()) {
-                    int metrosAvanzados = inputHandler.getMetros();
-                    return vehiculo.avanzar(metrosAvanzados);
-                } else {
-                    System.out.println(
-                            "No puedo avanzar con un vehiculo que no está en marcha,"
-                                    + "por favor arranque antes de avanzar.");
-                    return false;
-                }
-
+                intentarMoverse(accion);
             case 3: // Opcion retroceder
-                if (vehiculo.isArrancado()) {
-                    int metrosRetrocedidos = inputHandler.getMetros();
-                    return vehiculo.retroceder(metrosRetrocedidos);
-                } else {
-                    System.out.println(
-                            "No puedo retroceder con un vehiculo que no está en marcha,"
-                                    + "por favor arranque antes de avanzar.");
-                    return false;
-                }
+                intentarMoverse(accion);
             case 4: // Opcion imprimir datos
                 vehiculo.imprimirDatos();
                 return false;
@@ -106,6 +87,22 @@ public class VehiculoManager {
             default: // Como default por opcion no incluida, salir
                 return true;
 
+        }
+
+    }
+    
+    public boolean intentarMoverse(Integer opc) {
+    	if (vehiculo.isArrancado()) {
+
+    		boolean resultado = (opc == 2)? vehiculo.avanzar(inputHandler.getMetros()) :  vehiculo.retroceder(inputHandler.getMetros());
+
+    		 return resultado;
+
+        } else {
+            System.out.println(
+                    "El vehiculo no esta en marcha "
+                            + "por favor arranque antes de intentar moverte.");
+            return false;
         }
 
     }
