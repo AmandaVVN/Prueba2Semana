@@ -70,7 +70,7 @@ Para utilizar la clase Barco, primero debe instanciar un objeto pasando los argu
 
 ## 1.7. Cambios en la versión de la Semana 2
 
-###Mejoras
+### Mejoras
 - Cambio del nombre de las interfaces : Conducible -> IConducible
 - Cambiado el nombre de los paquetes para adecuarse a la version actual : Semana1 -> Semana2
 - Agrupacion de las clases en paquetes.
@@ -79,7 +79,7 @@ Para utilizar la clase Barco, primero debe instanciar un objeto pasando los argu
 - Arreglado bug que duplicaba la linea al pedir datos al usuario.
 - Creación de metodo de agrupacion de los metodos para mover el vehiculo en un metodo único. -> VehiculoManager.java
 
-###Añadido
+### Añadido
 - Persistencia de las clases : Moto, Coche y Barco
 - 
 
