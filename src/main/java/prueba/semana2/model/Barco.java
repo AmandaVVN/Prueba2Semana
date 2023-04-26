@@ -32,10 +32,16 @@ public class Barco extends Vehiculo {
     public Barco(String color, String marca, String precio, String matricula, String tipoBarco) {
         super(color, marca, precio, matricula, 0);
         this.tipoBarco = tipoBarco;
-
     }
+    
+    
+    public Barco() {
+		super();
+	}
 
-    /**
+
+
+	/**
      * Devuelve el tipoBarco.
      *
      * @return String

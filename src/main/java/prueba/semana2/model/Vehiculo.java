@@ -17,7 +17,7 @@ import prueba.semana2.services.IConducible;
  * Para que las propiedades de la superclass existan en la base de datos en sus hijos
  */
 @MappedSuperclass
-public abstract class Vehiculo implements IConducible {
+public class Vehiculo implements IConducible {
 
 	@Column
     protected String color;
@@ -56,7 +56,13 @@ public abstract class Vehiculo implements IConducible {
 
     }
 
-    /**
+    public Vehiculo() {
+		super();
+	}
+
+
+
+	/**
      * Impresión de los datos del vehiculo.
      */
     public void imprimirDatos() {
@@ -135,7 +141,14 @@ public abstract class Vehiculo implements IConducible {
         return this.arrancado;
     }
 
-    public void setArrancado(boolean arrancado) {
+    /**
+	 * @return the tipo
+	 */
+	public static String getTipo() {
+		return TIPO;
+	}
+
+	public void setArrancado(boolean arrancado) {
         this.arrancado = arrancado;
     }
 

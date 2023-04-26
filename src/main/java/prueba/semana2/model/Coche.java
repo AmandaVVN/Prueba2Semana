@@ -37,8 +37,13 @@ public class Coche extends Vehiculo {
         this.tipoMarchas = tipoMarchas;
 
     }
+    
+    public Coche() {
+	}
 
-    public String getTipoMarchas() {
+
+
+	public String getTipoMarchas() {
         return tipoMarchas;
     }
 

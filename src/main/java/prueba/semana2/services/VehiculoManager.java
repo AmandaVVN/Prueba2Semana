@@ -8,6 +8,7 @@ import prueba.semana2.model.Moto;
 import prueba.semana2.model.Vehiculo;
 import prueba.semana2.persistance.JPAPersistence;
 
+
 /**
  * VehiculoManager
  * Se encarga de gestionar los Vehiculos.
@@ -46,9 +47,11 @@ public class VehiculoManager {
         
         if(vehiculo != null) {
         	registrarVehiculo(vehiculo);
+        	devolverVehiculo(vehiculo).imprimirDatos();
+        
         }
         
-        return null; // no se ha encontrado ningun resultado valido
+        return vehiculo; // no se ha encontrado ningun resultado valido
 
     }
 
@@ -83,8 +86,18 @@ public class VehiculoManager {
 		entity.persist(vehiculo);
 		entity.getTransaction().commit();
 		
-		System.out.println("Producto registrado.");
+		System.out.println("Vehiculo registrado.");
 		System.out.println();
+    }
+    
+    /*
+     * Metodo que busca el vehiculo en la base de datos
+     */
+    private Vehiculo devolverVehiculo(Vehiculo veh) {
+    	Vehiculo vehEncontrado = new Vehiculo();
+        vehEncontrado = entity.find(veh.getClass(), 1);
+    	
+    	return vehEncontrado;
     }
     
     /**
@@ -98,10 +111,8 @@ public class VehiculoManager {
         switch (accion) {
             case 0: // Opcion arranque
                 return vehiculo.arrancar();
-
             case 1: // Opcion parar
                 return vehiculo.parar();
-
             case 2: // Opcion avanzar
                 intentarMoverse(accion);
             case 3: // Opcion retroceder
@@ -118,6 +129,10 @@ public class VehiculoManager {
 
     }
     
+    /* 
+     * Metodo para centralizar el movimiento del coche
+     * 
+     */
     public boolean intentarMoverse(Integer opc) {
     	if (vehiculo.isArrancado()) {
 
