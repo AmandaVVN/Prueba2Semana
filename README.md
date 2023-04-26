@@ -68,12 +68,27 @@ Para utilizar la clase Barco, primero debe instanciar un objeto pasando los argu
 - Version 0.5 (2023-04-23) - añadido resto de métodos
 - Version 0.6 (2023-04-24) - Pruebas unitarias y correcciones
 
-## 1.7. Créditos y atribuciones
+## 1.7. Cambios en la versión de la Semana 2
+
+### Mejoras
+- Cambio del nombre de las interfaces : Conducible -> IConducible
+- Cambiado el nombre de los paquetes para adecuarse a la version actual : Semana1 -> Semana2
+- Agrupacion de las clases en paquetes.
+- Eliminado metodo de la clase InputHandler ScannerReset -> El scanner no tiene ninguna propiedad actualmente 
+  si en el futuro la tiene se implimentara este metodo acorde a necesidad.
+- Arreglado bug que duplicaba la linea al pedir datos al usuario.
+- Creación de metodo de agrupacion de los metodos para mover el vehiculo en un metodo único. -> VehiculoManager.java
+
+### Añadido
+- Persistencia de las clases : Moto, Coche y Barco
+- 
+
+## 1.8. Créditos y atribuciones
 
 Lead Developer - Antoni (@antoni_dev)
 Mentor - Carlos (@blah_blah)
 
-## 1.8. License
+## 1.9. License
 
 The MIT License (MIT)
 
