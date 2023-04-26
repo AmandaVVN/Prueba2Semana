@@ -36,9 +36,12 @@ public class Barco extends Vehiculo {
     
     
     public Barco() {
-		super();
 	}
 
+    @Override
+	public int getId() {
+		return id_barco;
+	}
 
 
 	/**

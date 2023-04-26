@@ -58,4 +58,12 @@ public class Coche extends Vehiculo {
         super.imprimirDatos();
     }
 
+	/**
+	 * @return the id_coche
+	 */
+    @Override
+	public int getId() {
+		return id_coche;
+	}
+    
 }

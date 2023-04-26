@@ -25,9 +25,20 @@ public class InputHandler {
                 "Coche",
                 "Moto",
                 "Barco",
+                "Consulta de datos",
                 "Salir");
         return getUserInput("Por favor, seleccione una opción:", options);
     }
+    
+    public Integer getVehiculoBD() {
+        List<String> options = Arrays.asList(
+                "Coche",
+                "Moto",
+                "Barco",
+                "Salir");
+        return getUserInput("Por favor, seleccione una opción:", options);
+    }
+    
 
     /**
      * Metodo para pedir la acción al usuario.

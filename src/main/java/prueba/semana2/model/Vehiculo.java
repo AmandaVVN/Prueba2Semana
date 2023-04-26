@@ -29,10 +29,11 @@ public class Vehiculo implements IConducible {
     protected String matricula;
 	@Column
     protected int numRuedas;
-	@Column
-    private boolean arrancado = false;
-    protected static final String TIPO = "Vehiculo";
 
+	private boolean arrancado = false;
+    protected static final String TIPO = "Vehiculo";
+    protected int id;
+    
     // Variables del viaje
     protected Date horaInicio;
     protected int distanciaRecorrida = 0;
@@ -140,8 +141,15 @@ public class Vehiculo implements IConducible {
     public boolean getArrancado() {
         return this.arrancado;
     }
-
+   
     /**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
 	 * @return the tipo
 	 */
 	public static String getTipo() {

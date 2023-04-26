@@ -37,8 +37,16 @@ public class Moto extends Vehiculo {
         this.tipoMoto = tipoMoto;
     }
     
-    
-    
+    public Moto() {
+	}
+
+
+
+
+	@Override
+	public int getId() {
+		return id_moto;
+	}
 
     public String getTipoMoto() {
         return tipoMoto;

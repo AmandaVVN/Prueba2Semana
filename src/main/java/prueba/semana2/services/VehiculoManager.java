@@ -2,6 +2,8 @@ package prueba.semana2.services;
 
 import javax.persistence.EntityManager;
 
+import com.mysql.cj.MysqlType;
+
 import prueba.semana2.model.Barco;
 import prueba.semana2.model.Coche;
 import prueba.semana2.model.Moto;
@@ -38,8 +40,12 @@ public class VehiculoManager {
             case 2: // Barco
                 this.vehiculo = this.createBarco();
                 break;
-            case 3: // Salir
+            case 3: //Consultar
+            	ConsultaDatos();
                 break;
+            case 4: // Salir
+                break;
+
             default: // Como default por opcion no incluida, salir
                 System.out.println("No se ha encontrado una opción válida.");
                 return null;
@@ -47,8 +53,6 @@ public class VehiculoManager {
         
         if(vehiculo != null) {
         	registrarVehiculo(vehiculo);
-        	devolverVehiculo(vehiculo).imprimirDatos();
-        
         }
         
         return vehiculo; // no se ha encontrado ningun resultado valido
@@ -80,7 +84,7 @@ public class VehiculoManager {
      * Añade registros a la base de datos
      */
     
-    private void registrarVehiculo(Vehiculo vehiculo) {
+    public void registrarVehiculo(Vehiculo vehiculo) {
     	
 		entity.getTransaction().begin();
 		entity.persist(vehiculo);
@@ -93,10 +97,11 @@ public class VehiculoManager {
     /*
      * Metodo que busca el vehiculo en la base de datos
      */
-    private Vehiculo devolverVehiculo(Vehiculo veh) {
-    	Vehiculo vehEncontrado = new Vehiculo();
-        vehEncontrado = entity.find(veh.getClass(), 1);
-    	
+    private Vehiculo devolverVehiculo(Vehiculos veh, int idVeh) throws ClassNotFoundException {
+    	   	
+    	Class clase = Class.forName(Vehiculo.class.getPackage().getName() + "." + veh.toString());
+    	Vehiculo vehEncontrado = (Vehiculo) entity.find(clase, idVeh );
+   	
     	return vehEncontrado;
     }
     
@@ -126,8 +131,24 @@ public class VehiculoManager {
                 return true;
 
         }
-
     }
+    
+    /*
+     * Metodo que consulta la base de datos
+     */
+    public boolean ConsultaDatos() {
+    	
+    	Integer accion = inputHandler.getVehiculoBD();
+        
+    	if(accion>= 3) return false;
+    	try {
+			devolverVehiculo(Vehiculos.values()[accion],1).imprimirDatos();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+    	return true;
+    }
+    
     
     /* 
      * Metodo para centralizar el movimiento del coche
@@ -149,4 +170,9 @@ public class VehiculoManager {
 
     }
 
+    private enum Vehiculos{
+    	Coche,
+    	Moto,
+    	Barco
+    }
 }
