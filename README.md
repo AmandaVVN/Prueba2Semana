@@ -45,7 +45,7 @@ barco.arrancar();
 
 ## 1.4. Uso
 
-TODO: Cómo se debe usar el proyecto.
+-Para conectar el proyecto a tu base de datos cambia el archivo persistence.xml con los datos de tu base de datos
 
 **Uso de la clase Barco**
 
@@ -81,7 +81,7 @@ Para utilizar la clase Barco, primero debe instanciar un objeto pasando los argu
 
 ### Añadido
 - Persistencia de las clases : Moto, Coche y Barco
-- 
+- Tests para la persistencia de datos
 
 ## 1.8. Créditos y atribuciones
 
